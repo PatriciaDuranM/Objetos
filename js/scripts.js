@@ -100,17 +100,20 @@ const dataStrings = {
 };
 
 const dataFill = (frase) => {
-  for (letras of frase) {
-    const vocales = ["a", "e", "i", "o", "u"];
-    if (letras.includes[vocales]) {
-      dataStrings.firstFloor.vowels.push(letras[vocales]);
+  const vocales = "aeiou";
+  const consonantes = "bcdfghjklmnñpqrstvwxyz";
+  let newFrase = "";
+
+  for (const letra of frase) {
+    if (vocales.includes(letra)) {
+      dataStrings.firstFloor.vowels.push(letra);
     } else {
-      dataStrings.firstFloor.vowels.push(letras);
+      dataStrings.secondFloor.consonants.push(letra);
     }
   }
 };
 
-dataFill("Si no estudias acabarás como Enrique");
+dataFill("Hola que tal");
 console.log(`Vocales: ${dataStrings.firstFloor.vowels}`);
 
 /*10.Crea una función que reciba una palabra e imprima por consola esa palabra pero con las vocales en mayúscula.  */
