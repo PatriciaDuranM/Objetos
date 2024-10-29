@@ -104,17 +104,27 @@ const dataFill = (frase) => {
   const consonantes = "bcdfghjklmnñpqrstvwxyz";
   let newFrase = "";
 
-  for (const letra of frase) {
+  let encryptedPhrase = phrase
+    .replaceAll("a", 1)
+    .replaceAll("e", 2)
+    .replaceAll("i", 3)
+    .replaceAll("o", 4)
+    .replaceAll("u", 5);
+
+  for (const letra of frase.toLowerCase()) {
     if (vocales.includes(letra)) {
       dataStrings.firstFloor.vowels.push(letra);
-    } else {
+    } else if (consonantes.includes(letra)) {
       dataStrings.secondFloor.consonants.push(letra);
     }
+    dataFill.fourthFloor.asciiCode.consonants.push(letter.charCodeAt());
   }
 };
 
 dataFill("Hola que tal");
 console.log(`Vocales: ${dataStrings.firstFloor.vowels}`);
+console.log(`Consonantes: ${dataStrings.secondFloor.consonants}`);
+console.log(encryptedPhrase);
 
 /*10.Crea una función que reciba una palabra e imprima por consola esa palabra pero con las vocales en mayúscula.  */
 console.log("Ejercicio 10");
