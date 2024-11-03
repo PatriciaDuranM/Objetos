@@ -126,18 +126,45 @@ console.log(`Vocales: ${dataStrings.firstFloor.vowels}`);
 console.log(`Consonantes: ${dataStrings.secondFloor.consonants}`);
 console.log(encryptedPhrase);
 
-/*10.Crea una función que reciba una palabra e imprima por consola esa palabra pero con las vocales en mayúscula.  */
-console.log("Ejercicio 10");
-const vocalMayus = (word) => {
-  const vocals = ["a", "e", "i", "o", "u"];
-  let newWord = "";
-  for (const letter of word) {
-    if (vocals.includes(letter)) {
-      newWord = newWord + letter.toUpperCase();
-    } else newWord = newWord + letter;
-  }
+/*
 
-  console.log(newWord);
-};
+/MÉTODO 1
 
-vocalMayus("culo");
+// if (letter !== ' ') {
+// wordsInUppercase = wordsInUppercase + letter.toUpperCase();
+// wordsInLowercase = wordsInLowercase + letter.toLowerCase();
+// } else {
+// dataStrings.fifthFloor.wordsInUppercase.push(wordsInUppercase);
+// dataStrings.fifthFloor.wordsInLowercase.push(wordsInLowercase);
+// wordsInUppercase = '';
+// wordsInLowercase = '';
+// }
+} // FIN DEL BUCLE
+
+// if (wordsInUppercase.length > 0) {
+// dataStrings.fifthFloor.wordsInUppercase.push(wordsInUppercase);
+// dataStrings.fifthFloor.wordsInLowercase.push(wordsInLowercase);
+// }
+
+
+MÉTODO 2
+for (let index = 0; index < phrase.length; index++) {
+const letter = phrase[index];
+if (letter === ' ') {
+wordsInUppercase = phrase.substring(lastIndexSpace, index).toUpperCase();
+wordsInLowercase = phrase.substring(lastIndexSpace, index);
+dataStrings.fifthFloor.wordsInUppercase.push(wordsInUppercase);
+dataStrings.fifthFloor.wordsInLowercase.push(wordsInLowercase);
+wordsInUppercase = '';
+wordsInLowercase = '';
+lastIndexSpace = index;
+}
+
+if (index === phrase.length - 1) {
+wordsInUppercase = phrase.substring(lastIndexSpace).toUpperCase();
+wordsInLowercase = phrase.substring(lastIndexSpace);
+dataStrings.fifthFloor.wordsInUppercase.push(wordsInUppercase);
+dataStrings.fifthFloor.wordsInLowercase.push(wordsInLowercase);
+}
+} 
+*/
